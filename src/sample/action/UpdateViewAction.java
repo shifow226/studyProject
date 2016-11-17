@@ -35,7 +35,7 @@ public class UpdateViewAction extends Action {
         ResultSet rs = null;
         String strSql = null;
 
-System.out.println("aaa");
+//System.out.println("aaa");
         try {
         	//コンテキスト初期化
         	Context ctx = new InitialContext();
@@ -73,7 +73,7 @@ System.out.println("aaa");
             con.close();
         }
 
-        request.getRequestDispatcher("/top.jsp").forward(request, response);
+        request.getRequestDispatcher("/update.jsp").forward(request, response);
         return mapping.findForward("success");
 
     }

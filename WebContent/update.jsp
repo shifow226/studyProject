@@ -22,12 +22,31 @@
 
 	<h1>更新フォーム</h1>
 
+	<%
+		List<ListModel2> list =(List<ListModel2>)request.getAttribute("ListFormInfo");
+		for(int i = 0; i < list.size(); i++) {
+			ListModel2 listform = list.get(i);
+	%>
+
+	<p>ID</p>
+	<html:form action="updateview.do" method="post">
+		<html:select property="id" >
+			<html:optionsCollection
+			name="id"
+			property="ListFormInfo"
+			value="key"
+			label="value" />
+		</html:select>
+	</html:form>
 
 	<html:form action="update.do" method="post">
-		<p>ID<html:text property="id" /></p>
 		<p><html:text property="title" />
 		<html:submit property="submit" value="更新" />
 	</html:form>
+
+	<%
+		}
+	%>
 
 	<p><a href="top.jsp">TOPへ戻る</a></p>
 
