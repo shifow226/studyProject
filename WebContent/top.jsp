@@ -32,6 +32,7 @@
 
 	<html:form action="updateview.do" method="post">
 		<p><a href="update.do">データ更新</a></p>
+
 	</html:form>
 
 	<%
