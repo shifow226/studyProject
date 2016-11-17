@@ -22,31 +22,31 @@
 
 	<h1>更新フォーム</h1>
 
+	<html:form action="update.do" method="post">
+	<p>ID</p>
+
+	<!-- セレクトボックス定義 -->
+	<html:select property="id" value="03">
+	<!-- ここからループが始まります。 -->
 	<%
 		List<ListModel2> list =(List<ListModel2>)request.getAttribute("ListFormInfo");
 		for(int i = 0; i < list.size(); i++) {
 			ListModel2 listform = list.get(i);
 	%>
-
-	<p>ID</p>
-	<html:form action="updateview.do" method="post">
-		<html:select property="id" >
-			<html:optionsCollection
-			name="id"
-			property="ListFormInfo"
-			value="key"
-			label="value" />
-		</html:select>
-	</html:form>
-
-	<html:form action="update.do" method="post">
-		<p><html:text property="title" />
-		<html:submit property="submit" value="更新" />
-	</html:form>
+	<!-- ループの中身です -->
+	<html:option value="<%= String.valueOf(listform.getId()) %>"><%= String.valueOf(listform.getId()) %></html:option>
 
 	<%
 		}
 	%>
+	<!-- ループ終了です。 -->
+	</html:select>
+	<!-- セレクトボックス定義完了 -->
+
+		<p><html:text property="title" />
+		<html:submit property="submit" value="更新" />
+	</html:form>
+
 
 	<p><a href="top.jsp">TOPへ戻る</a></p>
 
