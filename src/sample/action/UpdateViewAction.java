@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -22,7 +24,8 @@ import sample.model.ListModel2;
 
 public class UpdateViewAction extends Action {
 
-    public ActionForward execute(
+    @SuppressWarnings("unchecked")
+	public ActionForward execute(
         ActionMapping mapping,
         ActionForm form,
         HttpServletRequest request,
@@ -65,7 +68,12 @@ public class UpdateViewAction extends Action {
         	}
 
         	// リクエストにListFormInfoを設定（jsp側で使用）
-        	request.setAttribute("ListFormInfo", list);
+//        	request.setAttribute("ListFormInfo", list);
+
+        	@SuppressWarnings("rawtypes")
+			Map menuPulldown = new TreeMap();
+        	menuPulldown.put("id", rs.getInt("id"));
+        	request.setAttribute("menu.pulldown", menuPulldown);
 
         } catch (Exception e) {
             throw e;

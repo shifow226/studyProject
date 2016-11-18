@@ -28,18 +28,27 @@
 			ListModel2 listform = list.get(i);
 	%>
 
+	<html:form action="update.do" method="post">
+
 	<p>ID</p>
-	<html:form action="updateview.do" method="post">
-		<html:select property="id" >
+
+		<%-- <html:select property="id" >
 			<html:optionsCollection
 			name="id"
 			property="ListFormInfo"
 			value="key"
 			label="value" />
-		</html:select>
-	</html:form>
+		</html:select>--%>
 
-	<html:form action="update.do" method="post">
+		<%-- <html:select property="menu" styleId="menu">
+			<html:options collection="menu.pulldown" property="key" labelProperty="value"/>
+		</html:select> --%>
+
+		<html:select property="id" size="1">
+		    <html:optionsCollection name="InputForm" property="idMap" value="key" label="value" />
+		</html:select>
+
+
 		<p><html:text property="title" />
 		<html:submit property="submit" value="更新" />
 	</html:form>

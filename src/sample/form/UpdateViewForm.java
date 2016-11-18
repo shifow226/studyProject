@@ -1,26 +1,38 @@
 package sample.form;
 
+import java.util.List;
+
 import org.apache.struts.action.ActionForm;
+
+import sample.model.ListModel2;
 
 public class UpdateViewForm extends ActionForm {
 
-	private int id;
-	private String title = null;
+	private static int id;
+	private static String title = null;
+	private static List<ListModel2> list_info = null;
 
-	public int getId() {
+	public static List<ListModel2> getList_info() {
+		return list_info;
+	}
+
+	public static void setList_info(List<ListModel2> list_info) {
+		UpdateViewForm.list_info = list_info;
+	}
+
+	public static int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public static void setId(int id) {
+		UpdateViewForm.id = id;
 	}
 
-	public String getTitle() {
+	public static String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public static void setTitle(String title) {
+		UpdateViewForm.title = title;
 	}
-
 }
