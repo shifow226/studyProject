@@ -50,7 +50,7 @@ public class ListAction extends Action {
         	stmt = con.createStatement();
 
         	//SQLコマンドを作成
-        	strSql = "SELECT * FROM form";
+        	strSql = "SELECT id,title FROM form";
 
         	//問い合わせを実行してリザルトセットを取得
         	rs = stmt.executeQuery(strSql);

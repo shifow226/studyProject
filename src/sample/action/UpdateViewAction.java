@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -24,7 +22,6 @@ import sample.model.ListModel2;
 
 public class UpdateViewAction extends Action {
 
-    @SuppressWarnings("unchecked")
 	public ActionForward execute(
         ActionMapping mapping,
         ActionForm form,
@@ -53,7 +50,7 @@ public class UpdateViewAction extends Action {
         	stmt = con.createStatement();
 
         	//SQLコマンドを作成
-        	strSql = "SELECT * FROM form";
+        	strSql = "SELECT id,title FROM form";
 
         	//問い合わせを実行してリザルトセットを取得
         	rs = stmt.executeQuery(strSql);
@@ -68,12 +65,18 @@ public class UpdateViewAction extends Action {
         	}
 
         	// リクエストにListFormInfoを設定（jsp側で使用）
-//        	request.setAttribute("ListFormInfo", list);
+        	request.setAttribute("ListFormInfo", list);
 
-        	@SuppressWarnings("rawtypes")
-			Map menuPulldown = new TreeMap();
-        	menuPulldown.put("id", rs.getInt("id"));
-        	request.setAttribute("menu.pulldown", menuPulldown);
+//        	@SuppressWarnings("rawtypes")
+//			Map menuPulldown = new TreeMap();
+//        	menuPulldown.put("id", rs.getInt("id"));
+//        	request.setAttribute("menu.pulldown", menuPulldown);
+
+//        	LinkedHashMap idMap = new LinkedHashMap();
+//        	idMap.put("id", "id");
+
+//        	BeanUtils.setProperty(form, "idMap", idMap);
+
 
         } catch (Exception e) {
             throw e;
