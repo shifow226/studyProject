@@ -38,7 +38,4 @@ public class ListForm extends ActionForm {
 	public static void setTitle(String title) {
 		ListForm.title = title;
 	}
-
-
-
 }

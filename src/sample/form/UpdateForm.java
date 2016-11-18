@@ -1,6 +1,11 @@
 package sample.form;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
 
 public class UpdateForm extends ActionForm {
 
@@ -23,4 +28,12 @@ public class UpdateForm extends ActionForm {
 		this.title = title;
 	}
 
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+        super.reset(mapping, request);
+        try {
+            request.setCharacterEncoding("utf-8");
+        } catch(UnsupportedEncodingException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
